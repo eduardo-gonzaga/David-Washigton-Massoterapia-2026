@@ -1,0 +1,40 @@
+/* Foto contínua ao fundo, com conteúdo sobreposto. */
+.hero{display:flex;align-items:center;isolation:isolate;min-height:660px;background:#061b20}
+.hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;z-index:0;order:initial;pointer-events:none}
+.hero .hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 16%;transform:none;will-change:auto}
+.hero .hero-photo:after{inset:0;background:linear-gradient(90deg,rgba(6,27,32,.97) 0%,rgba(6,27,32,.89) 24%,rgba(6,27,32,.63) 43%,rgba(6,27,32,.19) 65%,rgba(6,27,32,.08) 100%),linear-gradient(0deg,rgba(6,27,32,.45),transparent 45%);z-index:1}
+.hero .hero-copy{position:relative;z-index:2;width:100%;max-width:650px;padding:70px 40px 65px 6%;background:transparent;order:initial}
+.hero h1{font-size:clamp(38px,4.1vw,57px);line-height:1.08;letter-spacing:-1.2px;max-width:540px;text-wrap:balance;text-shadow:0 3px 20px #0003}
+.hero h1 em{display:block;margin-top:18px;font-size:.69em;line-height:1.2;color:#e7c58f}
+.hero-copy>p:not(.eyebrow){max-width:440px;font-size:15px;line-height:1.7;margin-top:24px;color:#f2f4f3}
+.hero-copy .eyebrow{color:#e7c58f;margin-bottom:23px}
+.hero .actions{flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .button{padding:15px 20px;border-radius:12px;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,border-color .25s ease}
+.hero .outline{background:#061b2040;backdrop-filter:blur(5px)}
+.hero .benefits{flex-wrap:wrap;gap:15px 24px;margin-top:32px;color:#e4e9e7;font-size:11px}
+.hero-copy h1,.hero-copy>p,.hero .benefits span{transition:transform .3s ease,text-shadow .3s ease,color .3s ease}
+@media(hover:hover) and (pointer:fine){
+ .hero-copy h1:hover{transform:translateY(-3px);text-shadow:0 5px 25px #d7b47d55}
+ .hero-copy>p:hover{transform:translateX(3px);color:#fff}
+ .hero .benefits span:hover{color:#eed4aa;transform:translateY(-2px)}
+ .hero .button:hover{transform:translateY(-4px);box-shadow:0 10px 28px #0004}
+ .hero .gold:hover{box-shadow:0 8px 28px #d7b47d50}
+ .hero .outline:hover{background:#d7b47d25;border-color:#e7c58f}
+}
+.hero .button:focus-visible{transform:translateY(-3px);outline:3px solid #f3d6a5;outline-offset:5px}
+@media(min-width:1200px){.hero .hero-copy{max-width:58%;padding-left:7.8%;padding-right:7%}}
+@media(max-width:900px){.hero{min-height:650px}.hero .hero-copy{max-width:70%;padding:55px 30px 55px 6%}.hero h1{font-size:43px}.hero .hero-photo img{object-position:54% 16%}.hero .button{padding:13px 16px}}
+@media(max-width:650px){
+ .hero{min-height:760px;align-items:flex-end}
+ .hero .hero-photo{position:absolute;inset:0;height:100%}
+ .hero .hero-photo img{object-position:57% 20%;transform:none}
+ .hero .hero-photo:after{background:linear-gradient(180deg,rgba(6,27,32,.15) 0%,rgba(6,27,32,.38) 25%,rgba(6,27,32,.84) 52%,rgba(6,27,32,.97) 100%),linear-gradient(90deg,#061b2066,transparent)}
+ .hero .hero-copy{max-width:none;padding:230px 6% 34px}
+ .hero h1{font-size:40px;max-width:480px}.hero h1 em{font-size:.72em;margin-top:14px}
+ .hero-copy>p:not(.eyebrow){font-size:14px;margin-top:18px;line-height:1.65}
+ .hero-copy .eyebrow{font-size:9px;margin-bottom:16px}
+ .hero .actions{flex-direction:row;align-items:center;gap:10px;margin-top:23px}
+ .hero .button{font-size:10px;padding:14px 16px}
+ .hero .benefits{font-size:10px;gap:12px 18px;margin-top:25px}
+}
+@media(prefers-reduced-motion:reduce){.hero-copy h1,.hero-copy>p,.hero .benefits span,.hero .button{transition:none!important;transform:none!important}}
